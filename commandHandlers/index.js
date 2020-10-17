@@ -1,4 +1,5 @@
 module.exports = {
-  listCommands: require('./listCommands'),
-  changePrefix: require('./changePrefix')
+  handlePrefix: require('./handlePrefix'),
+  handleHelp: require('./handleHelp'),
+  handleDecide: require('./handleDecide')
 }

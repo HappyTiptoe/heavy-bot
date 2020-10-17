@@ -1,18 +1,23 @@
 const {
-  listCommands,
-  changePrefix
+  handleDecide,
+  handleHelp,
+  handlePrefix
 } = require('../commandHandlers')
 
 module.exports = (msg) => {
   const [command, ...args] = msg.content.substr(1).split(' ')
 
   switch (command.toLowerCase()) {
-    case 'commands':
-      listCommands(msg)
+    case 'help':
+      handleHelp(msg)
       break
 
     case 'prefix':
-      changePrefix(msg, args[0])
+      handlePrefix(msg, args[0])
+      break
+
+    case 'decide':
+      handleDecide(msg)
       break
   }
 
