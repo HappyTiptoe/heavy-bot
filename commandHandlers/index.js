@@ -1,3 +1,4 @@
 module.exports = {
-  handlePrefixChange: require('./handlePrefixChange')
+  listCommands: require('./listCommands'),
+  changePrefix: require('./changePrefix')
 }
