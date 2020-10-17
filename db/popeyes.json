@@ -1,0 +1,168 @@
+{
+  "entrees": [
+    {
+      "name": "Classic Chicken Sandwich",
+      "cal": 699
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "cal": 700
+    },
+    {
+      "name": "Chicken Wrap",
+      "cal": 310
+    },
+    {
+      "name": "Chicken Breasts [2pc]",
+      "cal": 760
+    },
+    {
+      "name": "Chicken Wings [4pc]",
+      "cal": 840
+    },
+    {
+      "name": "Spicy Tenders [3pc]",
+      "cal": 445
+    },
+    {
+      "name": "Spicy Tenders [5pc]",
+      "cal": 741
+    },
+    {
+      "name": "Regular Tenders [3pc]",
+      "cal": 445
+    },
+    {
+      "name": "Regular Tenders [5pc]",
+      "cal": 741
+    },
+    {
+      "name": "Blackened Tenders [3pc]",
+      "cal": 170
+    },
+    {
+      "name": "Blackened Tenders [5pc]",
+      "cal": 283
+    },
+    {
+      "name": "1/4lb Popcorn Shrimp",
+      "cal": 390
+    }
+  ],
+  "sides": [
+    {
+      "name": "Biscuit",
+      "cal": 207
+    },
+    {
+      "name": "Cajun Fries [regular]",
+      "cal": 268
+    },
+    {
+      "name": "Cajun Fries [large]",
+      "cal": 630
+    },
+    {
+      "name": "Mac n Cheese [regular]",
+      "cal": 219
+    },
+    {
+      "name": "Mac n Cheese [large]",
+      "cal": 655
+    },
+    {
+      "name": "Mashed Potatoes [regular]",
+      "cal": 110
+    },
+    {
+      "name": "Mashed Potatoes [large]",
+      "cal": 330
+    },
+    {
+      "name": "Red Beans & Rice [regular]",
+      "cal": 247
+    },
+    {
+      "name": "Red Beans & Rice [large]",
+      "cal": 610
+    },
+    {
+      "name": "Cajun Rice [regular]",
+      "cal": 183
+    },
+    {
+      "name": "Cajun Rice [large]",
+      "cal": 548
+    },
+    {
+      "name": "Coleslaw [regular]",
+      "cal": 140
+    },
+    {
+      "name": "Coleslaw [large]",
+      "cal": 420
+    },
+    {
+      "name": "Onion Rings [regular]",
+      "cal": 278
+    },
+    {
+      "name": "Onion Rings [large]",
+      "cal": 555
+    }
+  ],
+  "drinks": [
+    {
+      "name": "Coke",
+      "cal": 270
+    },
+    {
+      "name": "Diet Coke",
+      "cal": 0
+    },
+    {
+      "name": "Sprite",
+      "cal": 260
+    },
+    {
+      "name": "Strawberry Fanta",
+      "cal": 300
+    },
+    {
+      "name": "Orange Fanta",
+      "cal": 290
+    },
+    {
+      "name": "Hawaiian Punch",
+      "cal": 310
+    },
+    {
+      "name": "Mountain Dew",
+      "cal": 290
+    },
+    {
+      "name": "Pepsi",
+      "cal": 200
+    },
+    {
+      "name": "Diet Pepsi",
+      "cal": 0
+    },
+    {
+      "name": "Dr. Pepper",
+      "cal": 260
+    },
+    {
+      "name": "Unsweeneted Tea",
+      "cal": 0
+    },
+    {
+      "name": "Sweet Tea",
+      "cal": 180
+    },
+    {
+      "name": "Minute Maid Lemonade",
+      "cal": 270
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 module.exports = {
-  handlePrefix: require('./handlePrefix'),
+  handleDecide: require('./handleDecide'),
   handleHelp: require('./handleHelp'),
-  handleDecide: require('./handleDecide')
+  handlePopeyes: require('./handlePopeyes'),
+  handlePrefix: require('./handlePrefix')
 }
