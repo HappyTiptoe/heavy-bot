@@ -5,8 +5,8 @@ module.exports = (msg, newPrefix) => {
   if (_validPrefixes.includes(newPrefix)) {
     actions.setPrefix(newPrefix)
     // watch out for backticks
-    msg.channel.send('[prefix - *updated prefix to `' + newPrefix + '`]*')
+    msg.channel.send('[prefix - updated prefix to `' + newPrefix + '`]')
   } else {
-    msg.channel.send('[prefix - *invalid prefix*]\nApproved prefixes: `! ? # - $`')
+    msg.channel.send('[prefix - error: invalid prefix]\nApproved prefixes: `! ? # - $`')
   }
 }

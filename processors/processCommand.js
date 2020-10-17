@@ -2,7 +2,8 @@ const {
   handleDecide,
   handleHelp,
   handlePopeyes,
-  handlePrefix
+  handlePrefix,
+  handleStudy
 } = require('../commandHandlers')
 
 module.exports = (msg) => {
@@ -23,6 +24,12 @@ module.exports = (msg) => {
 
     case 'prefix':
       handlePrefix(msg, args[0])
+      break
+
+    case 'study':
+      if (msg.author.id === process.env.MATHY) {
+        handleStudy(msg, args[0])
+      }
       break
   }
 

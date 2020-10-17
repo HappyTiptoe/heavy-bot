@@ -15,9 +15,14 @@ client.on('message', (msg) => {
 
   // @DEBUG only works for me
   if (msg.author.id !== process.env.EB) return
-  const prefix = getters.getPrefix()
 
-  if (msg.content.startsWith(prefix)) {
+  // if in study mode, send message to Mathy only
+  if (getters.getIsStudying() && msg.author.id === process.env.MATHY) {
+    msg.reply('GET OFF OF DISCORD :point_right: :regional_indicator_a: :regional_indicator_n: :regional_indicator_k: :regional_indicator_i:')
+    return
+  }
+
+  if (msg.content.startsWith(getters.getPrefix())) {
     processCommand(msg)
   } else {
     processMessage(msg)
