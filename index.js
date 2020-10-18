@@ -11,13 +11,10 @@ const { processCommand, processMessage } = require('./processors')
 const { getters } = require('./state')
 
 client.on('message', (msg) => {
-  // if (msg.author === client.user) return
-
-  // @DEBUG only works for me
-  if (msg.author.id !== process.env.EB) return
+  if (msg.author === client.user) return
 
   // if in study mode, send message to Mathy only
-  if (getters.getIsStudying() && msg.author.id === process.env.MATHY) {
+  if (getters.getIsStudying() && msg.author.id === process.env.MATHY && msg.content !== '!study disable') {
     msg.reply('GET OFF OF DISCORD :point_right: :regional_indicator_a: :regional_indicator_n: :regional_indicator_k: :regional_indicator_i:')
     return
   }
