@@ -10,6 +10,7 @@ const {
 
 module.exports = (msg) => {
   const [command, ...args] = msg.content.substr(1).split(' ')
+  const filteredArgs = args.filter((arg) => arg !== '')
 
   switch (command.toLowerCase()) {
     case 'decide':
@@ -31,7 +32,7 @@ module.exports = (msg) => {
       break
 
     case 'prefix':
-      handlePrefix(msg, args[0])
+      handlePrefix(msg, filteredArgs[0])
       break
 
     case 'say':
@@ -40,10 +41,10 @@ module.exports = (msg) => {
 
     case 'study':
       if (msg.author.id === process.env.MATHY) {
-        handleStudy(msg, args[0])
+        handleStudy(msg, filteredArgs[0])
       }
       break
   }
 
-  console.log(`[DEBUG] command: ${command} | args: ${args} `)
+  console.log(`[DEBUG] command: ${command} | filteredArgs: [${filteredArgs}] | args: [${args}] `)
 }
