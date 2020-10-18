@@ -1,7 +1,8 @@
 const state = {
   prefix: '!',
   isStudying: false,
-  studyTimeout: null
+  studyTimeout: null,
+  previousMessages: [{}, {}]
 }
 
 const actions = {
@@ -19,6 +20,11 @@ const actions = {
 
   clearStudyTimeout: function () {
     clearTimeout(state.studyTimeout)
+  },
+
+  updatePreviousMessages: function (payload) {
+    state.previousMessages[1] = state.previousMessages[0]
+    state.previousMessages[0] = payload
   }
 }
 
@@ -27,7 +33,8 @@ const getters = {
   getIsStudying: () => state.isStudying,
   getIsStudyTimeoutActive: () => Boolean(
     state.studyTimeout && !state.studyTimeout._destroyed
-  )
+  ),
+  getPreviousMessages: () => state.previousMessages
 }
 
 module.exports = { actions, getters }

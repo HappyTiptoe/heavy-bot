@@ -1,4 +1,5 @@
 module.exports = {
   handleConvertWeightToAdamantPlatebodies: require('./handleConvertWeightToAdamantPlatebodies'),
-  handleKeyWords: require('./handleKeyWords')
+  handleKeyWords: require('./handleKeyWords'),
+  handleEcho: require('./handleEcho')
 }

@@ -1,6 +1,7 @@
 const {
   handleConvertWeightToAdamantPlatebodies,
-  handleKeyWords
+  handleKeyWords,
+  handleEcho
 } = require('../messageHandlers')
 
 module.exports = (msg) => {
@@ -11,4 +12,7 @@ module.exports = (msg) => {
   // TODO: potentially update to individual commands
   // TODO: potentially update to accept list of words
   handleKeyWords(msg)
+
+  // repeats message if 3 separate people type the same thing
+  handleEcho(msg)
 }
