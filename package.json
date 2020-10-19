@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "build": "yarn clean && babel src -d dist",
+    "build": "yarn clean && babel src -d dist --copy-files",
     "start": "node dist/index.js",
     "dev": "yarn build && nodemon dist/index.js"
   },
