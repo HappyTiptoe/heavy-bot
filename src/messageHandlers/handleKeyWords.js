@@ -8,7 +8,6 @@ module.exports = (msg) => {
   // bill wibbly
   if (
     lowerContent.includes('bill') ||
-    lowerContent.includes('will') ||
     lowerContent.includes('wibbly') ||
     lowerContent.includes('bibbly')
   ) {
