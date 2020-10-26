@@ -1,6 +1,8 @@
 const state = {
   prefix: '!',
+  isTameStudying: false,
   isStudying: false,
+  tameStudyTimeout: null,
   studyTimeout: null,
   previousMessages: [{}, {}]
 }
@@ -22,6 +24,18 @@ const actions = {
     clearTimeout(state.studyTimeout)
   },
 
+  setIsTameStudying: function (payload) {
+    state.isTameStudying = payload
+  },
+
+  setTameStudyTimeout: function (payload) {
+    state.tameStudyTimeout = payload
+  },
+
+  clearTameStudyTimeout: function () {
+    clearTimeout(state.tameStudyTimeout)
+  },
+
   updatePreviousMessages: function (payload) {
     state.previousMessages[1] = state.previousMessages[0]
     state.previousMessages[0] = payload
@@ -33,6 +47,10 @@ const getters = {
   getIsStudying: () => state.isStudying,
   getIsStudyTimeoutActive: () => Boolean(
     state.studyTimeout && !state.studyTimeout._destroyed
+  ),
+  getIsTameStudying: () => state.isTameStudying,
+  getIsTameStudyTimeoutActive: () => Boolean(
+    state.tameStudyTimeout && !state.tameStudyTimeout._destroyed
   ),
   getPreviousMessages: () => state.previousMessages
 }

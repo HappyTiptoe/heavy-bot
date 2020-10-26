@@ -13,9 +13,15 @@ const { getters } = require('./state')
 client.on('message', (msg) => {
   if (msg.author === client.user) return
 
-  // if in study mode, send message to Mathy only
+  // reply to mathy if in study mode
   if (getters.getIsStudying() && msg.author.id === process.env.MATHY && msg.content !== '!study disable') {
     msg.reply('GET OFF OF DISCORD :point_right: :regional_indicator_a: :regional_indicator_n: :regional_indicator_k: :regional_indicator_i:')
+    return
+  }
+
+  // reply to tame if in study mode
+  if (getters.getIsTameStudying() && msg.author.id === process.env.TAME && msg.content !== '!study disable') {
+    msg.reply('Stay focussed you muppet.\n>i want to be reminded that i\'m doing this because i hate my job')
     return
   }
 
