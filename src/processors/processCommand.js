@@ -43,8 +43,7 @@ module.exports = (msg) => {
     case 'study':
       if (msg.author.id === process.env.MATHY) {
         handleStudy(msg, filteredArgs[0])
-      }
-      if (msg.author.id === process.env.TAME) {
+      } else if (msg.author.id === process.env.TAME) {
         handleTameStudy(msg, filteredArgs[0])
       }
       break

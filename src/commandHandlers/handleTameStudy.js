@@ -47,7 +47,7 @@ module.exports = (msg, arg) => {
         setTimeout(() => {
           actions.setIsTameStudying(false)
           actions.clearTameStudyTimeout()
-          msg.channel.send('[study - disabled]\n<@!166606381024149506>, you are free!')
+          msg.channel.send('[study - disabled]')
         }, arg * 60000)
       )
       msg.channel.send(`[study - enabled for ${arg} minutes]`)
