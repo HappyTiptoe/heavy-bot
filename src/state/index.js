@@ -4,10 +4,15 @@ const state = {
   isStudying: false,
   tameStudyTimeout: null,
   studyTimeout: null,
+  eggs: 0,
   previousMessages: [{}, {}]
 }
 
 const actions = {
+  setEggs: function (payload) {
+    state.eggs = payload
+  },
+
   setPrefix: function (payload) {
     state.prefix = payload
   },
@@ -43,6 +48,7 @@ const actions = {
 }
 
 const getters = {
+  getEggs: () => state.eggs,
   getPrefix: () => state.prefix,
   getIsStudying: () => state.isStudying,
   getIsStudyTimeoutActive: () => Boolean(

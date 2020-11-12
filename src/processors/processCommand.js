@@ -6,7 +6,8 @@ const {
   handlePrefix,
   handleSay,
   handleStudy,
-  handleTameStudy
+  handleTameStudy,
+  handleSubmit
 } = require('../commandHandlers')
 
 module.exports = (msg) => {
@@ -40,12 +41,17 @@ module.exports = (msg) => {
       handleSay(msg, args)
       break
 
+    // TODO improve study
     case 'study':
       if (msg.author.id === process.env.MATHY) {
         handleStudy(msg, filteredArgs[0])
       } else if (msg.author.id === process.env.TAME) {
         handleTameStudy(msg, filteredArgs[0])
       }
+      break
+
+    case 'submit':
+      handleSubmit(msg, filteredArgs)
       break
   }
 
