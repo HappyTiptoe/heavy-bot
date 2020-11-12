@@ -21,7 +21,7 @@ client.on('message', (msg) => {
 
   // reply to tame if in study mode
   if (getters.getIsTameStudying() && msg.author.id === process.env.TAME && msg.content !== '!study disable') {
-    msg.reply('Stay focussed you muppet.\n>i want to be reminded that i\'m doing this because i hate my job')
+    msg.reply('Stay focussed you muppet.\n >i want to be reminded that i\'m doing this because i hate my job')
     return
   }
 
