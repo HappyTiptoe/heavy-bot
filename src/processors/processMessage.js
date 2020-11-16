@@ -1,7 +1,8 @@
 const {
   handleConvertWeightToAdamantPlatebodies,
   handleKeyWords,
-  handleEcho
+  handleEcho,
+  handleGoodbye
 } = require('../messageHandlers')
 
 module.exports = (msg) => {
@@ -15,4 +16,7 @@ module.exports = (msg) => {
 
   // repeats message if 3 separate people type the same thing
   handleEcho(msg)
+
+  // send photo of a dog as a reply to most forms of goodbye
+  handleGoodbye(msg)
 }
