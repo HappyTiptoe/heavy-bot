@@ -7,20 +7,20 @@ require('dotenv').config()
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
-// const { processCommand, processMessage } = require('./processors')
-// const { getters } = require('./state')
+const { processCommand, processMessage } = require('./processors')
+const { getters } = require('./state')
 
 client.on('message', (msg) => {
-  /* if (msg.author === client.user) return
+  if (msg.author === client.user) return
 
   // reply to mathy if in study mode
-  if (getters.getIsStudying() && msg.author.id === process.env.MATHY && msg.content !== '!study disable') {
+  if (getters.getIsStudying() && msg.author.id === process.env.USER_MATHY && msg.content !== '!study disable') {
     msg.reply('GET OFF OF DISCORD :point_right: :regional_indicator_a: :regional_indicator_n: :regional_indicator_k: :regional_indicator_i:')
     return
   }
 
   // reply to tame if in study mode
-  if (getters.getIsTameStudying() && msg.author.id === process.env.TAME && msg.content !== '!study disable') {
+  if (getters.getIsTameStudying() && msg.author.id === process.env.USER_TAME && msg.content !== '!study disable') {
     msg.reply('Stay focussed you muppet.\n >i want to be reminded that i\'m doing this because i hate my job')
     return
   }
@@ -29,17 +29,14 @@ client.on('message', (msg) => {
     processCommand(msg)
   } else {
     processMessage(msg)
-  } */
+  }
 })
 
 client.on('ready', () => {
-  const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  // const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
   // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
 
   client.user.setActivity('my weight.', { type: 'WATCHING' })
-
-  generalChannel.send('That reminds me of a funny story, actually!')
-  generalChannel.startTyping()
 
   console.log('HEAVY BOT is ready to receive your orders...')
 })

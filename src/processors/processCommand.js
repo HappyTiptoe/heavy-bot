@@ -24,7 +24,7 @@ module.exports = (msg) => {
       break
 
     case 'hot':
-      if (msg.channel.id !== process.env.GENERAL) {
+      if (msg.channel.id !== process.env.CHAN_GENERAL) {
         handleHot(msg)
       }
       break
@@ -43,9 +43,9 @@ module.exports = (msg) => {
 
     // TODO improve study
     case 'study':
-      if (msg.author.id === process.env.MATHY) {
+      if (msg.author.id === process.env.USER_MATHY) {
         handleStudy(msg, filteredArgs[0])
-      } else if (msg.author.id === process.env.TAME) {
+      } else if (msg.author.id === process.env.USER_TAME) {
         handleTameStudy(msg, filteredArgs[0])
       }
       break

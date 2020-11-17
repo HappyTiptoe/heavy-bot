@@ -9,7 +9,7 @@ module.exports = (msg, args) => {
   } else if (args.length === 1 && args[0].toLowerCase() === 'eggs') {
     msg.channel.send('Only one egg may be submitted at a time.')
   } else if (args.length === 1 && !isNaN(args[0])) {
-    if (msg.author.id === process.env.EB) {
+    if (msg.author.id === process.env.USER_EB) {
       const eggs = args[0]
       actions.setEggs(+eggs)
       msg.channel.send(`Set eggs to: ${eggs}`)

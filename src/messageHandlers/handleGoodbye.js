@@ -1,5 +1,5 @@
 module.exports = (msg) => {
-  const regex = /\b(goodbye|bye|cya|farewell|later)\b/gi
+  const regex = /\b(goodbye|bye|cya|farewell)\b/gi
   if (msg.content.match(regex)) {
     // image
     msg.channel.send({ files: ['dist/img/bye.png'] })

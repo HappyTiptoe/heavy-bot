@@ -11,7 +11,8 @@ module.exports = (msg) => {
           !popeyes: Generates a random popeyes meal
           !prefix: Sets new prefix for commands
           !say: Repeats what you say
-          !study: Encourages Mathy
+          !study: Encourages Mathy/TMW
+          !submit egg: Submits an egg
         `
       }
     ]
