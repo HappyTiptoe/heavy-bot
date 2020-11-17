@@ -33,17 +33,11 @@ client.on('message', (msg) => {
 })
 
 client.on('ready', () => {
-  const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  // const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
   // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
 
   client.user.setActivity('my weight.', { type: 'WATCHING' })
 
-  generalChannel.startTyping()
-  generalChannel.send('I spilled baked beans all over myself watching Cars 2 in theaters & a black teenager shouted "this robot eating beans" & everyone laughed.')
-  setTimeout(() => {
-    generalChannel.send('Sorry it took so long to type, it\'s hard to type with my HEAVY fingers')
-  }, 10000)
-  generalChannel.stopTyping()
   console.log('HEAVY BOT is ready to receive your orders...')
 })
 
