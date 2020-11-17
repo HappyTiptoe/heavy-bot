@@ -7,11 +7,11 @@ require('dotenv').config()
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
-const { processCommand, processMessage } = require('./processors')
-const { getters } = require('./state')
+// const { processCommand, processMessage } = require('./processors')
+// const { getters } = require('./state')
 
 client.on('message', (msg) => {
-  if (msg.author === client.user) return
+  /* if (msg.author === client.user) return
 
   // reply to mathy if in study mode
   if (getters.getIsStudying() && msg.author.id === process.env.MATHY && msg.content !== '!study disable') {
@@ -29,11 +29,18 @@ client.on('message', (msg) => {
     processCommand(msg)
   } else {
     processMessage(msg)
-  }
+  } */
 })
 
 client.on('ready', () => {
+  const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
+
   client.user.setActivity('my weight.', { type: 'WATCHING' })
+
+  generalChannel.send('That reminds me of a funny story, actually!')
+  generalChannel.startTyping()
+
   console.log('HEAVY BOT is ready to receive your orders...')
 })
 
