@@ -1,64 +1,43 @@
 const state = {
   prefix: '!',
-  isTameStudying: false,
-  isStudying: false,
-  tameStudyTimeout: null,
-  studyTimeout: null,
+  previousMessages: [{}, {}],
   eggs: 0,
-  previousMessages: [{}, {}]
+  studySessions: []
 }
 
 const actions = {
-  setEggs: function (payload) {
-    state.eggs = payload
-  },
-
   setPrefix: function (payload) {
     state.prefix = payload
   },
 
-  setIsStudying: function (payload) {
-    state.isStudying = payload
-  },
-
-  setStudyTimeout: function (payload) {
-    state.studyTimeout = payload
-  },
-
-  clearStudyTimeout: function () {
-    clearTimeout(state.studyTimeout)
-  },
-
-  setIsTameStudying: function (payload) {
-    state.isTameStudying = payload
-  },
-
-  setTameStudyTimeout: function (payload) {
-    state.tameStudyTimeout = payload
-  },
-
-  clearTameStudyTimeout: function () {
-    clearTimeout(state.tameStudyTimeout)
+  setEggs: function (payload) {
+    state.eggs = payload
   },
 
   updatePreviousMessages: function (payload) {
     state.previousMessages[1] = state.previousMessages[0]
     state.previousMessages[0] = payload
+  },
+
+  addStudySession: function (payload) {
+    state.studySessions = [...state.studySessions, payload]
+    console.log('Added session:', state.studySessions)
+  },
+
+  removeStudySession: function (payload) {
+    const session = state.studySessions.find((studySession) => studySession.studentId === payload)
+    console.log('Found session:', session)
+    clearTimeout(session.timeoutId)
+    state.studySessions = state.studySessions.filter((studySession) => studySession !== session)
+    console.log('Removed session:', state.studySessions)
   }
 }
 
 const getters = {
-  getEggs: () => state.eggs,
   getPrefix: () => state.prefix,
-  getIsStudying: () => state.isStudying,
-  getIsStudyTimeoutActive: () => Boolean(
-    state.studyTimeout && !state.studyTimeout._destroyed
-  ),
-  getIsTameStudying: () => state.isTameStudying,
-  getIsTameStudyTimeoutActive: () => Boolean(
-    state.tameStudyTimeout && !state.tameStudyTimeout._destroyed
-  ),
-  getPreviousMessages: () => state.previousMessages
+  getPreviousMessages: () => state.previousMessages,
+  getEggs: () => state.eggs,
+  getIsStudying: (id) => state.studySessions.some((studySession) => studySession.studentId === id)
 }
 
 module.exports = { actions, getters }

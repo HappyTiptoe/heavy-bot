@@ -1,7 +1,25 @@
 const { actions, getters } = require('../state')
 
+const endStudySession = (msg, studentId) => {
+  actions.removeStudySession(studentId)
+  msg.reply('your study session has finished!')
+}
+
+const initStudySession = (msg, studentId, lengthInMinutes = undefined) => {
+  if (lengthInMinutes !== undefined) {
+    const lengthInMs = lengthInMinutes * 60000
+    const timeoutId = setTimeout(() => endStudySession(msg, studentId), lengthInMs)
+    actions.addStudySession({ studentId, timeoutId })
+    msg.reply(`your study session for ${lengthInMinutes} ${lengthInMinutes === 1 ? 'minute' : 'minutes'} has begun. Have fun!`)
+  } else {
+    actions.addStudySession({ studentId, studyTimeout: null })
+    msg.reply('your study session has begun. Have fun!')
+  }
+}
+
 module.exports = (msg, arg) => {
-  const isStudying = getters.getIsStudying()
+  const { author } = msg
+  const isStudying = getters.getIsStudying(author.id)
 
   if (!arg) {
     msg.channel.send('[study - error: invalid syntax]\nPlease use `!study [enable / disable / (number > 0)]`')
@@ -10,47 +28,26 @@ module.exports = (msg, arg) => {
 
   switch (arg.toLowerCase()) {
     case 'enable':
-      if (isStudying) {
-        msg.channel.send('[study - error: session already in progress]')
-        break
-      }
-
-      actions.setIsStudying(true)
-      msg.channel.send('[study - enabled]')
+      initStudySession(msg, author.id)
       break
 
     case 'disable':
       if (!isStudying) {
-        msg.channel.send('[study - error: no active session]')
+        msg.reply('you don\'t have an active study session for me to disable.')
         break
       }
 
-      actions.setIsStudying(false)
-      actions.clearStudyTimeout()
-      msg.channel.send('[study - disabled]')
+      endStudySession(msg, author.id)
       break
 
     default:
-      // if not 'enable' or 'disable', ensure argument is a number
+      // if not 'enable' or 'disable', ensure argument is a valid number
       if (isNaN(arg) || arg <= 0) {
         msg.channel.send('[study - error: invalid syntax]\nPlease use `!study [enable / disable / (number > 0)]`')
         break
       }
 
-      if (isStudying) {
-        msg.channel.send('[study - error: session already in progress]')
-        break
-      }
-
-      actions.setIsStudying(true)
-      actions.setStudyTimeout(
-        setTimeout(() => {
-          actions.setIsStudying(false)
-          actions.clearStudyTimeout()
-          msg.channel.send('[study - disabled]\n<@!295420001702248448>, you are free!')
-        }, arg * 60000)
-      )
-      msg.channel.send(`[study - enabled for ${arg} minutes]`)
+      initStudySession(msg, author.id, arg)
       break
   }
 }
