@@ -26,7 +26,7 @@ const actions = {
   removeStudySession: function (payload) {
     const session = state.studySessions.find((studySession) => studySession.studentId === payload)
     clearTimeout(session.timeoutId)
-    state.studySessions = state.studySessions.filter((studySession) => studySession !== session
+    state.studySessions = state.studySessions.filter((studySession) => studySession !== session)
   }
 }
 
