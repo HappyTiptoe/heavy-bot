@@ -21,15 +21,12 @@ const actions = {
 
   addStudySession: function (payload) {
     state.studySessions = [...state.studySessions, payload]
-    console.log('Added session:', state.studySessions)
   },
 
   removeStudySession: function (payload) {
     const session = state.studySessions.find((studySession) => studySession.studentId === payload)
-    console.log('Found session:', session)
     clearTimeout(session.timeoutId)
-    state.studySessions = state.studySessions.filter((studySession) => studySession !== session)
-    console.log('Removed session:', state.studySessions)
+    state.studySessions = state.studySessions.filter((studySession) => studySession !== session
   }
 }
 
