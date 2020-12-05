@@ -1,4 +1,5 @@
 const {
+  handleChoose,
   handleDecide,
   handleHelp,
   handleHot,
@@ -14,6 +15,10 @@ module.exports = (msg) => {
   const filteredArgs = args.filter((arg) => arg !== '')
 
   switch (command.toLowerCase()) {
+    case 'choose':
+      handleChoose(msg, filteredArgs)
+      break
+
     case 'decide':
       handleDecide(msg)
       break
