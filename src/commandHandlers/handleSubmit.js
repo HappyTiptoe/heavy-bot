@@ -1,7 +1,7 @@
 const { actions, getters } = require('../state')
 
 module.exports = (msg, args) => {
-  if (args.length === 1 && args[0].toLowerCase() === 'egg') {
+  if (args.length === 1 && (args[0].toLowerCase() === 'egg' || args[0].toLowerCase() === 'egg.')) {
     const eggs = getters.getEggs()
     const newEggs = eggs + 1
     actions.setEggs(newEggs)
@@ -20,3 +20,4 @@ module.exports = (msg, args) => {
     msg.channel.send('Sorry, you may only submit egg.')
   }
 }
+
