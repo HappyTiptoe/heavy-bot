@@ -7,11 +7,12 @@ module.exports = (msg) => {
         name: 'Available Commands:',
         value: `
           !help: This command
+          !choose: Picks between space-separated choices
           !decide: Performs a coin flip
           !popeyes: Generates a random popeyes meal
-          !prefix: Sets new prefix for commands
+          !prefix: Sets prefix for HEAVY BOT commands
           !say: Repeats what you say
-          !study: Encourages Mathy/TMW
+          !study: Discourages Discord use
           !submit egg: Submits an egg
         `
       }

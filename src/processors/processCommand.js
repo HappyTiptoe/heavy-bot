@@ -45,7 +45,6 @@ module.exports = (msg) => {
       handleSay(msg, args)
       break
 
-    // TODO improve study
     case 'study':
       handleStudy(msg, filteredArgs[0])
       break
@@ -55,5 +54,5 @@ module.exports = (msg) => {
       break
   }
 
-  console.log(`[DEBUG] command: ${command} | filteredArgs: [${filteredArgs}] | args: [${args}] `)
+  console.log(`[DEBUG]: author: ${msg.author.username} | channel: ${msg.channel.name} | command: ${command} | filteredArgs: [${filteredArgs}] | args: [${args}]`)
 }
