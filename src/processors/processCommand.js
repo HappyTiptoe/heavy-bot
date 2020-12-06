@@ -3,6 +3,7 @@ const {
   handleDecide,
   handleHelp,
   handleHot,
+  handleOWO,
   handlePopeyes,
   handlePrefix,
   handleSay,
@@ -31,6 +32,10 @@ module.exports = (msg) => {
       if (msg.channel.id !== process.env.CHAN_GENERAL) {
         handleHot(msg)
       }
+      break
+
+    case 'owo':
+      handleOWO(msg, args)
       break
 
     case 'popeyes':
