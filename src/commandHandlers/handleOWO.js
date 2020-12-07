@@ -1,4 +1,5 @@
 const getRandomFace = () => {
+  // eslint-disable-next-line
   const faces = ['(・\`ω´・)', ';;w;;', 'owo', 'UwU', '>w<', '^w^']
   return faces[Math.floor(Math.random() * faces.length)]
 }
@@ -15,7 +16,7 @@ module.exports = (msg, args) => {
     .split('')
     .map((c) => {
       return c === '!'
-        ? `${' '.repeat(args.length > 1)} ${getRandomFace()}`
+        ? `${' '.repeat(args.length > 1)}${getRandomFace()}`
         : c
     })
     .join('')
