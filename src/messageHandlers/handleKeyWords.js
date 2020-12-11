@@ -23,4 +23,9 @@ module.exports = (msg) => {
   if (lowerContent.includes('light')) {
     msg.react('745377252396630176')
   }
+  
+  // hot
+  if (lowerContent.includes('hot')) {
+    msg.react('786788680966340638')
+  }
 }

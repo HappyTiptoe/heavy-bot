@@ -20,4 +20,3 @@ module.exports = (msg, args) => {
     msg.channel.send('Sorry, you may only submit egg.')
   }
 }
-
