@@ -4,5 +4,6 @@ module.exports = (msg) => {
       sentMsg.react('🇭')
       sentMsg.react('🇴')
       sentMsg.react('🇹')
+      sentMsg.react('786788680966340638')
     })
 }
