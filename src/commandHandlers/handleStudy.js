@@ -10,7 +10,7 @@ const initStudySession = (msg, studentId, lengthInMinutes = undefined) => {
     const lengthInMs = lengthInMinutes * 60000
     const timeoutId = setTimeout(() => endStudySession(msg, studentId), lengthInMs)
     actions.addStudySession({ studentId, timeoutId })
-    msg.reply(`your study session for ${lengthInMinutes} ${lengthInMinutes === 1 ? 'minute' : 'minutes'} has begun. Have fun!`)
+    msg.reply(`your study session for ${lengthInMinutes} ${Number(lengthInMinutes) === 1 ? 'minute' : 'minutes'} has begun. Have fun!`)
   } else {
     actions.addStudySession({ studentId, studyTimeout: null })
     msg.reply('your study session has begun. Have fun!')
