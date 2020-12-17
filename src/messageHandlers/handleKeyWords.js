@@ -25,7 +25,7 @@ module.exports = (msg) => {
   }
   
   // hot
-  if (lowerContent.includes('hot')) {
+  if (lowerContent.match(/(?<!\w)hot(?!\w)/gi)) {
     msg.react('786788680966340638')
   }
 }
