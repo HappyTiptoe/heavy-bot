@@ -11,14 +11,20 @@ module.exports = (msg) => {
     switch (unit) {
       case 'kgs':
       case 'kg':
-        msg.reply(`actually, you mean ${(value / 11.339).toFixed(2)} Adamant Platebodies.`)
+        msg.reply(
+          `actually, you mean ${(value / 11.339).toFixed(
+            2
+          )} Adamant Platebodies.`
+        )
         break
 
       case 'pounds':
       case 'pound':
       case 'lbs':
       case 'lb':
-        msg.reply(`actually, you mean ${(value / 25.0).toFixed(2)} Adamant Platebodies.`)
+        msg.reply(
+          `actually, you mean ${(value / 25.0).toFixed(2)} Adamant Platebodies.`
+        )
         break
 
       // case 'gs':

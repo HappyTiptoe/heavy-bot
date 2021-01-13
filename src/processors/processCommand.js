@@ -8,7 +8,8 @@ const {
   handlePrefix,
   handleSay,
   handleStudy,
-  handleSubmit
+  handleSubmit,
+  handleUnkify
 } = require('../commandHandlers')
 
 module.exports = (msg) => {
@@ -57,7 +58,13 @@ module.exports = (msg) => {
     case 'submit':
       handleSubmit(msg, filteredArgs)
       break
+
+    case 'unkify':
+      handleUnkify(msg, args)
+      break
   }
 
-  console.log(`[DEBUG]: author: ${msg.author.username} | channel: ${msg.channel.name} | command: ${command} | filteredArgs: [${filteredArgs}] | args: [${args}]`)
+  console.log(
+    `[DEBUG]: author: ${msg.author.username} | channel: ${msg.channel.name} | command: ${command} | filteredArgs: [${filteredArgs}] | args: [${args}]`
+  )
 }

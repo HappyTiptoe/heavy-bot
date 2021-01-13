@@ -1,4 +1,4 @@
-const generateRandomNumber = require('../util/generateRandomNumber')
+const generateRandomNumber = require('../util/randomNumUpTo')
 
 module.exports = (msg) => {
   const flip = generateRandomNumber(2)

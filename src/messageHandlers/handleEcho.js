@@ -4,11 +4,13 @@ module.exports = (msg) => {
   const [last, sndLast] = getters.getPreviousMessages()
   const { author, content } = msg
 
-  const isDifferentAuthors = sndLast?.author?.id !== last?.author?.id &&
+  const isDifferentAuthors =
+    sndLast?.author?.id !== last?.author?.id &&
     sndLast?.author?.id !== author.id &&
     last?.author?.id !== author.id
 
-  const isSameContent = sndLast?.content === last?.content &&
+  const isSameContent =
+    sndLast?.content === last?.content &&
     sndLast?.content === content &&
     last?.content === content
 

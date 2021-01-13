@@ -24,9 +24,13 @@ const actions = {
   },
 
   removeStudySession: function (payload) {
-    const session = state.studySessions.find((studySession) => studySession.studentId === payload)
+    const session = state.studySessions.find(
+      (studySession) => studySession.studentId === payload
+    )
     clearTimeout(session.timeoutId)
-    state.studySessions = state.studySessions.filter((studySession) => studySession !== session)
+    state.studySessions = state.studySessions.filter(
+      (studySession) => studySession !== session
+    )
   }
 }
 
@@ -34,7 +38,8 @@ const getters = {
   getPrefix: () => state.prefix,
   getPreviousMessages: () => state.previousMessages,
   getEggs: () => state.eggs,
-  getIsStudying: (id) => state.studySessions.some((studySession) => studySession.studentId === id)
+  getIsStudying: (id) =>
+    state.studySessions.some((studySession) => studySession.studentId === id)
 }
 
 module.exports = { actions, getters }

@@ -8,5 +8,6 @@ module.exports = {
   handlePrefix: require('./handlePrefix'),
   handleSay: require('./handleSay'),
   handleStudy: require('./handleStudy'),
-  handleSubmit: require('./handleSubmit')
+  handleSubmit: require('./handleSubmit'),
+  handleUnkify: require('./handleUnkify')
 }
