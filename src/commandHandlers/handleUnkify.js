@@ -68,6 +68,7 @@ const breakWord = (word) => {
 }
 
 module.exports = (msg, args) => {
+  const unkiePrefix = '<:unkie:742854278930104355>:mega: '
   const unkified = args.map(breakWord).join(' ')
-  msg.channel.send(unkified || '_ _')
+  msg.channel.send(unkiePrefix + unkified || '_ _')
 }
