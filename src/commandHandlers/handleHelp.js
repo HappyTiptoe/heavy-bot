@@ -1,3 +1,5 @@
+const { getters } = require('../state')
+
 module.exports = (msg) => {
   const embed = {
     color: '#0099ff',
@@ -6,14 +8,16 @@ module.exports = (msg) => {
       {
         name: 'Available Commands:',
         value: `
-          !help: This command
-          !choose: Picks between space-separated choices
-          !decide: Performs a coin flip
-          !popeyes: Generates a random popeyes meal
-          !prefix: Sets prefix for HEAVY BOT commands
-          !say: Repeats what you say
-          !study: Discourages Discord use
-          !submit egg: Submits an egg
+          ${getters.getPrefix}help: This command
+          ${getters.getPrefix}choose: Picks between space-separated choices
+          ${getters.getPrefix}decide: Performs a coin flip
+          ${getters.getPrefix}owo: Makes text a li'l more weeby
+          ${getters.getPrefix}popeyes: Generates a random popeyes meal
+          ${getters.getPrefix}prefix: Sets prefix for HEAVY BOT commands
+          ${getters.getPrefix}say: Repeats what you say
+          ${getters.getPrefix}study: Discourages Discord use
+          ${getters.getPrefix}submit egg: Submits an egg
+          ${getters.getPrefix}unkify: i'nm soryr
         `
       }
     ]
