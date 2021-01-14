@@ -1,10 +1,19 @@
 const randomNumUpTo = require('../util/randomNumUpTo')
 const shuffleArray = require('../util/shuffleArray')
 
+const UNKIE_DICTIONARY = {
+  missed: 'mist',
+  trying: 'tryna',
+  picture: 'pitcher',
+  desktop: 'dextop',
+  biggest: 'bigist',
+  man: 'men',
+  both: 'bolth',
+  thank: 'tharnk'
+}
+
 const getRandomLetter = () => {
-  // const isCapital = randomNumUpTo(2)
   const letterCharCode = randomNumUpTo(26) + 97
-  // const letterCharCode = randomNumUpTo(26) + 65 + !isCapital * 32
 
   return String.fromCharCode(letterCharCode)
 }
@@ -47,26 +56,34 @@ const breakWord = (word) => {
     return word
   }
 
-  const rand = Math.floor(Math.random() * 10)
+  if (Object.keys(UNKIE_DICTIONARY).includes(word.toLowerCase())) {
+    return UNKIE_DICTIONARY[word.toLowerCase()]
+  }
+
+  const rand = Math.floor(Math.random() * 20)
 
   switch (rand) {
     case 0:
+    case 1:
       return addRandomLetter(word)
 
-    case 1:
+    case 2:
+    case 3:
       return changeRandomLetter(word)
 
-    case 2:
+    case 4:
+    case 5:
       if (word.length > 1) {
         return deleteRandomLetter(word)
       } else {
         return word
       }
 
-    case 3:
+    case 6:
+    case 7:
       return shuffleInnerLetters(word)
 
-    case 4:
+    case 8:
       return stutter(word)
 
     default:
