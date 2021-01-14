@@ -38,6 +38,10 @@ const shuffleInnerLetters = (word) => {
   return firstLetter + shuffledInnerLetters + lastLetter
 }
 
+const stutter = (word) => {
+  return word[0] + '-' + word
+}
+
 const breakWord = (word) => {
   if (!word.length) {
     return word
@@ -61,6 +65,9 @@ const breakWord = (word) => {
 
     case 3:
       return shuffleInnerLetters(word)
+
+    case 4:
+      return stutter(word)
 
     default:
       return word
