@@ -47,10 +47,6 @@ const shuffleInnerLetters = (word) => {
   return firstLetter + shuffledInnerLetters + lastLetter
 }
 
-const stutter = (word) => {
-  return word[0] + '-' + word
-}
-
 const breakWord = (word) => {
   if (!word.length) {
     return word
@@ -60,31 +56,28 @@ const breakWord = (word) => {
     return UNKIE_DICTIONARY[word.toLowerCase()]
   }
 
-  const rand = Math.floor(Math.random() * 20)
+  const rand = Math.floor(Math.random() * 10)
 
   switch (rand) {
     case 0:
-    case 1:
       return addRandomLetter(word)
 
-    case 2:
-    case 3:
+    case 1:
       return changeRandomLetter(word)
 
-    case 4:
-    case 5:
+    case 2:
       if (word.length > 1) {
         return deleteRandomLetter(word)
       } else {
         return word
       }
 
-    case 6:
-    case 7:
-      return shuffleInnerLetters(word)
-
-    case 8:
-      return stutter(word)
+    case 3:
+      if (word.length > 3) {
+        return shuffleInnerLetters(word)
+      } else {
+        return word
+      }
 
     default:
       return word

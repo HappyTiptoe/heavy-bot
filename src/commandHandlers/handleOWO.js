@@ -5,8 +5,18 @@ const getRandomFace = () => {
   return faces[Math.floor(Math.random() * faces.length)]
 }
 
+const stutter = (word) => {
+  return word[0] + '-' + word
+}
+
+const shouldStutter = (word) => {
+  const isFirstCharALetter = /[a-z]/i.test(word[0])
+  return Math.floor(Math.random() * 8) === 0 && isFirstCharALetter
+}
+
 module.exports = (msg, args) => {
   const owoifiedMsg = args
+    .map((word) => (shouldStutter(word) ? stutter(word) : word))
     .join(' ')
     .replace(/(?:r|l)/g, 'w')
     .replace(/(?:R|L)/g, 'W')
