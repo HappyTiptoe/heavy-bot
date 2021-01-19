@@ -1,4 +1,4 @@
-const generateRandomNumber = require('../util/randomNumUpTo')
+const generateRandomNumber = require('../util/generateRandomNumberUpTo')
 
 module.exports = (msg, args) => {
   const randomIndex = generateRandomNumber(args.length)

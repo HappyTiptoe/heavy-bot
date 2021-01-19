@@ -1,4 +1,4 @@
-const generateRandomNumber = require('../util/randomNumUpTo')
+const generateRandomNumber = require('../util/generateRandomNumberUpTo')
 const { entrees, sides, drinks } = require('../db/popeyes.json')
 
 const selectRandomArrayItem = (array) => {

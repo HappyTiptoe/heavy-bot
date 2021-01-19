@@ -1,91 +1,64 @@
-const randomNumUpTo = require('../util/randomNumUpTo')
+const generateRandomNumberUpTo = require('../util/generateRandomNumberUpTo')
 const shuffleArray = require('../util/shuffleArray')
+const DICTIONARY = require('../constants/unkieDictionary')
+const TYPOS = require('../constants/typos')
 
-const UNKIE_DICTIONARY = {
-  missed: 'mist',
-  trying: 'tryna',
-  picture: 'pitcher',
-  desktop: 'dextop',
-  biggest: 'bigist',
-  man: 'men',
-  both: 'bolth',
-  thank: 'tharnk'
-}
+/* getters */
+const getRandomArrayItem = (array) =>
+  array[generateRandomNumberUpTo(array.length)]
+const getRandomCharIndex = (word) => generateRandomNumberUpTo(word.length)
+const getMiddleOfWord = (word) => word.slice(1, word.length - 1)
+const getIsInDictionary = (word) => Object.keys(DICTIONARY).includes(word)
+const getTypo = (char) =>
+  /[a-zA-Z]/.test(char) ? getRandomArrayItem(TYPOS[char]) : char
 
-const getRandomLetter = () => {
-  const letterCharCode = randomNumUpTo(26) + 97
+/* corruptors */
+const typoInWord = (word, position = word.length, shouldReplaceChar) =>
+  word.slice(0, position) +
+  getTypo(word.charAt(position)) +
+  word.slice(position + shouldReplaceChar)
 
-  return String.fromCharCode(letterCharCode)
-}
+const deleteCharFromWord = (word, position) =>
+  word.slice(0, position) + word.slice(position + 1)
 
-const addRandomLetter = (word) => {
-  const randomIndex = randomNumUpTo(word.length)
-  const randomLetter = getRandomLetter()
+const shuffleString = (string) => shuffleArray(string.split('')).join('')
 
-  return word.slice(0, randomIndex) + randomLetter + word.slice(randomIndex)
-}
+const shuffleMiddleOfWord = (word) =>
+  word[0] + shuffleString(getMiddleOfWord(word)) + word[word.length - 1]
 
-const changeRandomLetter = (word) => {
-  const randomIndex = randomNumUpTo(word.length)
-  const randomLetter = getRandomLetter()
+/* main functions */
+const corrupt = (word) => {
+  // ensure _some_ readability
+  if (word.length < 2) return word
 
-  return word.slice(0, randomIndex) + randomLetter + word.slice(randomIndex + 1)
-}
+  // random chance out of 10 for corruption
+  const randomNumber = generateRandomNumberUpTo(16)
+  const randomPosition = getRandomCharIndex(word)
 
-const deleteRandomLetter = (word) => {
-  const randomIndex = randomNumUpTo(word.length)
-  return word.slice(0, randomIndex) + word.slice(randomIndex + 1)
-}
-
-const shuffleInnerLetters = (word) => {
-  const firstLetter = word[0]
-  const lastLetter = word[word.length - 1]
-  const shuffledInnerLetters = shuffleArray(
-    word.split('').slice(1, word.length - 1)
-  ).join('')
-
-  return firstLetter + shuffledInnerLetters + lastLetter
-}
-
-const breakWord = (word) => {
-  if (!word.length) {
-    return word
-  }
-
-  if (Object.keys(UNKIE_DICTIONARY).includes(word.toLowerCase())) {
-    return UNKIE_DICTIONARY[word.toLowerCase()]
-  }
-
-  const rand = Math.floor(Math.random() * 10)
-
-  switch (rand) {
+  switch (randomNumber) {
     case 0:
-      return addRandomLetter(word)
-
+      return typoInWord(word, randomPosition, false)
     case 1:
-      return changeRandomLetter(word)
-
+      return typoInWord(word, randomPosition, true)
     case 2:
-      if (word.length > 1) {
-        return deleteRandomLetter(word)
-      } else {
-        return word
-      }
-
+      return deleteCharFromWord(word, randomPosition)
     case 3:
-      if (word.length > 3) {
-        return shuffleInnerLetters(word)
-      } else {
-        return word
-      }
-
+      return shuffleMiddleOfWord(word)
     default:
       return word
   }
 }
 
+const unkify = (word) => {
+  if (getIsInDictionary(word)) {
+    return DICTIONARY[word.toLowerCase()]
+  } else {
+    return corrupt(word)
+  }
+}
+
 module.exports = (msg, args) => {
   const unkiePrefix = '<:unkie:742854278930104355>:mega: '
-  const unkified = args.map(breakWord).join(' ')
+  const unkified = args.map(unkify).join(' ')
   msg.channel.send(unkiePrefix + unkified || '_ _')
 }
