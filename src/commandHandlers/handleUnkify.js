@@ -6,9 +6,13 @@ const TYPOS = require('../constants/typos')
 /* getters */
 const getRandomArrayItem = (array) =>
   array[generateRandomNumberUpTo(array.length)]
+
 const getRandomCharIndex = (word) => generateRandomNumberUpTo(word.length)
+
 const getMiddleOfWord = (word) => word.slice(1, word.length - 1)
+
 const getIsInDictionary = (word) => Object.keys(DICTIONARY).includes(word)
+
 const getTypo = (char) =>
   /[a-zA-Z]/.test(char) ? getRandomArrayItem(TYPOS[char]) : char
 
@@ -50,7 +54,7 @@ const corrupt = (word) => {
 }
 
 const unkify = (word) => {
-  if (getIsInDictionary(word)) {
+  if (getIsInDictionary(word.toLowerCase())) {
     return DICTIONARY[word.toLowerCase()]
   } else {
     return corrupt(word)

@@ -1,10 +1,12 @@
 module.exports = {
-  missed: 'mist',
-  trying: 'tryna',
-  picture: 'pitcher',
-  desktop: 'dextop',
   biggest: 'bigist',
-  man: 'men',
+  business: 'bidness',
+  chicken: 'chikin',
   both: 'bolth',
-  thank: 'tharnk'
+  desktop: 'dextop',
+  man: 'men',
+  missed: 'mist',
+  picture: 'pitcher',
+  thank: 'tharnk',
+  trying: 'tryna'
 }
