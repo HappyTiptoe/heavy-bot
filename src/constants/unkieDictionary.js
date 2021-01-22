@@ -7,6 +7,7 @@ module.exports = {
   man: 'men',
   missed: 'mist',
   picture: 'pitcher',
+  strong: 'stronk',
   thank: 'tharnk',
   trying: 'tryna'
 }
