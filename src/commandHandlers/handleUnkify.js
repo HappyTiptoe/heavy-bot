@@ -36,7 +36,7 @@ const corrupt = (word) => {
   if (word.length < 2) return word
 
   // random chance out of 10 for corruption
-  const randomNumber = generateRandomNumberUpTo(16)
+  const randomNumber = generateRandomNumberUpTo(10)
   const randomPosition = getRandomCharIndex(word)
 
   switch (randomNumber) {
