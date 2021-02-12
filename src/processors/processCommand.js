@@ -9,14 +9,15 @@ const {
   handleSay,
   handleStudy,
   handleSubmit,
-  handleUnkify
+  handleUnkify,
+  handleUnkifyN
 } = require('../commandHandlers')
 
 module.exports = (msg) => {
   const [command, ...args] = msg.content.substr(1).split(' ')
   const filteredArgs = args.filter((arg) => arg !== '')
 
-  switch (command.toLowerCase()) {
+  switch (command) {
     case 'choose':
       handleChoose(msg, filteredArgs)
       break
@@ -61,6 +62,10 @@ module.exports = (msg) => {
 
     case 'unkify':
       handleUnkify(msg, args)
+      break
+
+    case 'unkifyN':
+      handleUnkifyN(msg, args)
       break
   }
 

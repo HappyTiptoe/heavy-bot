@@ -9,5 +9,6 @@ module.exports = {
   handleSay: require('./handleSay'),
   handleStudy: require('./handleStudy'),
   handleSubmit: require('./handleSubmit'),
-  handleUnkify: require('./handleUnkify')
+  handleUnkify: require('./handleUnkify'),
+  handleUnkifyN: require('./handleUnkifyN')
 }
