@@ -1,4 +1,4 @@
-const { reply } = require('..util')
+const { reply } = require('../util')
 
 const weight = (message) => {
   const matches = message.content.toLowerCase().match(
