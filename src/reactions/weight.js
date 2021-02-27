@@ -13,6 +13,7 @@ const weight = (message) => {
       case 'kgs':
       case 'kg':
         reply(
+          message,
           `actually, you mean ${(value / 11.339).toFixed(
             2
           )} Adamant Platebodies.`
@@ -24,13 +25,14 @@ const weight = (message) => {
       case 'lbs':
       case 'lb':
         reply(
+          message,
           `actually, you mean ${(value / 25.0).toFixed(2)} Adamant Platebodies.`
         )
         break
 
       // case 'gs':
       // case 'g':
-      //   reply(`actually, you mean ${(value / 11339).toFixed(2)} Adamant Platebodies.`)
+      //   reply(message,`actually, you mean ${(value / 11339).toFixed(2)} Adamant Platebodies.`)
       //   break
 
       default:
