@@ -18,7 +18,7 @@ const echo = (message, store) => {
     send(message, content)
     store.updatePreviousMessages({})
   } else {
-    store.updatePreviousMessages({ author, content })
+    store.updatePreviousMessages(message)
   }
 }
 

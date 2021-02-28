@@ -8,6 +8,7 @@ const {
   roll,
   repeat,
   study,
+  _this,
   unkify
 } = require('../commands')
 
@@ -49,6 +50,10 @@ const handleCommand = (message, store, client) => {
 
     case 'study':
       study(message, store, content)
+      break
+
+    case 'this':
+      _this(message, store)
       break
 
     case 'unkify':

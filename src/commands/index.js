@@ -6,6 +6,7 @@ const remind = require('./remind')
 const roll = require('./roll')
 const repeat = require('./repeat')
 const study = require('./study')
+const _this = require('./_this')
 const unkify = require('./unkify')
 
 module.exports = {
@@ -17,5 +18,6 @@ module.exports = {
   roll,
   repeat,
   study,
+  _this,
   unkify
 }

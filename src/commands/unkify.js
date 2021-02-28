@@ -91,7 +91,7 @@ const unkify = (message, content) => {
     unkifiedContent = unkifyContent(restOfContent, unkifyArg)
   }
 
-  send(message, '[unkify]: ' + unkifiedContent)
+  send(message, '📣<:unkie:742854278930104355>📣 ' + unkifiedContent)
 }
 
 module.exports = unkify
