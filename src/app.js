@@ -25,6 +25,7 @@ client.on('message', (message) => {
   ) {
     handleCommand(message, store, client)
   } else if (isStudying) {
+    // TODO: get custom messages
     message.reply('YOU SHOULD BE STUDYING <:grr:810963998777671690>')
   } else {
     handleReactions(message, store, client)
@@ -34,7 +35,7 @@ client.on('message', (message) => {
 client.on('ready', () => {
   // const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
   // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
-  client.user.setActivity('DEV MODE.', { type: 'WATCHING' })
+  client.user.setActivity('MY WEIGHT.', { type: 'WATCHING' })
   console.log('HEAVY BOT online.')
 })
 

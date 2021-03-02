@@ -29,6 +29,14 @@ const keywords = (message) => {
   if (content.match(/(?<!\w)hot(?!\w)/gi)) {
     message.react('786788680966340638')
   }
+
+  // uh oh
+  if (content.match(/(?<!\w)uh oh(?!\w)/gi)) {
+    message.react('5️⃣')
+    message.react('8️⃣')
+    message.react('2️⃣')
+    message.react('4️⃣')
+  }
 }
 
 module.exports = keywords
