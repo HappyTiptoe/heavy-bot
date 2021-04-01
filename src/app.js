@@ -33,17 +33,11 @@ client.on('message', (message) => {
 })
 
 client.on('ready', () => {
-  const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
-  generalChannel.startTyping()
+  //const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  //generalChannel.startTyping()
   // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
-  // client.user.setActivity('MY WEIGHT.', { type: 'WATCHING' })
-  client.user.setPrescence({
-    status: 'offline',
-    game:  {
-      name: '',
-      type: 'STREAMING'
-    }
-  })
+  client.user.setActivity('MY WEIGHT.', { type: 'WATCHING' })
+ 
   console.log('HEAVY BOT online.')
 })
 
