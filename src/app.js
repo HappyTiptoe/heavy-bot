@@ -41,7 +41,7 @@ client.on('ready', () => {
     status: 'offline',
     game:  {
       name: '',
-      type: 'STREAMING
+      type: 'STREAMING'
     }
   })
   console.log('HEAVY BOT online.')
