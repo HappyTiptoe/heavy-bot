@@ -33,7 +33,8 @@ client.on('message', (message) => {
 })
 
 client.on('ready', () => {
-  // const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  const generalChannel = client.channels.cache.get(process.env.CHAN_GENERAL)
+  generalChannel.startTyping()
   // const botsChannel = client.channels.cache.get(process.env.CHAN_BOTS)
   client.user.setActivity('MY WEIGHT.', { type: 'WATCHING' })
   console.log('HEAVY BOT online.')
