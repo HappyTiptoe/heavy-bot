@@ -29,6 +29,11 @@ const keywords = (message) => {
   if (content.match(/(?<!\w)hot(?!\w)/gi)) {
     message.react('786788680966340638')
   }
+  
+  // anime
+  if (content.match(/(?<!\w)anime(?!\w)/gi)) {
+    message.channel.send('weeb')
+  }
 
   // uh oh
   if (content.match(/(?<!\w)uh oh(?!\w)/gi)) {
